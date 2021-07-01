@@ -13,6 +13,7 @@ function initHeader() {
     // navLinks is justified right
     // navLinks is a flex element
     const navLinks = document.createElement('nav');
+    navLinks.id = 'nav-wrapper';
 
     const nav = {
         'Home': null,

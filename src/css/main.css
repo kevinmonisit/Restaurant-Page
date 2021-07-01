@@ -1,5 +1,58 @@
 #main-header-first {
     width: 100%;
-    height:200px;
+    height:65px;
     background-color: red;
+
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#nav-wrapper {
+    display:flex;
+    flex-direction: row;
+    color:white;
+}
+
+#nav-wrapper div{
+    margin: 0 20px;
+}
+
+@keyframes header-animation {
+    from {
+        width:100%;
+        height:65px;
+    }
+
+    to {
+        width:60%;
+        height:95%;
+    }
+}
+
+#first-page-background-wrapper {
+    position:absolute;
+    top:0;
+    width:100%;
+
+    z-index:-1;
+
+    background-color: blue;
+
+    animation-name: header-animation;
+    animation-duration:1.5s;
+
+    animation-fill-mode:both;
+
+    animation-iteration-count: 1;
+    animation-direction:alternate;
+    animation-timing-function: ease;
+}
+
+#title {
+    margin-top: 65px;
+}
+
+#text-wrapper-lander {
+    overflow-wrap: normal;
 }
