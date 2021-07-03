@@ -1,37 +1,38 @@
 /* eslint-disable indent */
 
-import txt from 'raw-loader!./loremIpsum.txt';
+import txt from './loremIpsum.txt';
 
 /**
  * Creates the initial page.
  * @return {Node} test
  */
 function createFirstPageComponent() {
-    const wrapperBackground = document.createElement('div');
-    wrapperBackground.id = 'first-page-background-wrapper';
+    const contentWrapper = document.createElement('div');
+    contentWrapper.id = 'first-page-content-wrapper';
 
-    const title = document.createElement('h1');
-    title.innerText = "Ramen\nIchikaru";
-    title.id = 'title';
+    const elements = {
+        'titleWrapper': null,
+        'subtitleWrapper': null,
+        'textWrapper': null,
+    };
 
-    const content = document.createElement('div');
-    content.innerText = txt;
-    // wrapperBackground will not
-    // affect the text because it is position:absolute.
-    // therefore, we need an invisible text wrapper
-    // that goes along with the width of the wrapperBackground
-    // therefore, the content will be a bit more responsive.
+    for (const key in elements) {
+        if (Object.hasOwnProperty.call(elements, key)) {
+            const wrapper = document.createElement('div');
+            wrapper.id = key;
+            elements[key] = wrapper;
 
-    const textWrapper = document.createElement('div');
-    textWrapper.id = 'text-wrapper-lander';
-    textWrapper.style['width'] = wrapperBackground.style.width;
+            contentWrapper.appendChild(wrapper);
+        }
+    }
 
-    textWrapper.appendChild(title);
-    textWrapper.appendChild(content);
+    elements['titleWrapper'].textContent = 'Ramen\nIchiraku';
+    elements['subtitleWrapper'].textContent =
+        'Welcome to Naruto Uzumaki\'s Go-To Ramen Shop.';
 
-    wrapperBackground.appendChild(textWrapper);
+    elements['textWrapper'].textContent = txt;
 
-    return wrapperBackground;
+    return contentWrapper;
 }
 
 export default createFirstPageComponent;

@@ -1,21 +1,43 @@
-#main-header-first {
+html, body {
+    width:100%;
+    height:100%;
+}
+
+#landing-page-container {
     width: 100%;
-    height:65px;
-    background-color: red;
+    height:94%;
+    background-color: green;
 
     display:flex;
     justify-content: flex-end;
-    align-items: center;
+}
+
+#front-content {
+    flex-grow:2;
+
+    height:100%;
+    background-color: red;
 }
 
 #nav-wrapper {
     display:flex;
     flex-direction: row;
     color:white;
+
+    align-items: center;
+    justify-content: center;
+
+    height:65px;
+    min-width: 290px;
 }
 
 #nav-wrapper div{
+    height:30px;
     margin: 0 20px;
+}
+
+#Home {
+    margin-left: 30px !important;
 }
 
 @keyframes header-animation {
@@ -30,6 +52,15 @@
     }
 }
 
+#titleWrapper {
+    font-size: 3rem;
+}
+
+#subtitleWrapper {
+    font-size:2rem;
+}
+
+/*
 #first-page-background-wrapper {
     position:absolute;
     top:0;
@@ -55,4 +86,4 @@
 
 #text-wrapper-lander {
     overflow-wrap: normal;
-}
+} */

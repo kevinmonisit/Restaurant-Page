@@ -7,8 +7,8 @@ import './css/main.css';
  */
 function initHeader() {
     // flex
-    const header = document.createElement('div');
-    header.id = 'main-header-first';
+    const container = document.createElement('div');
+    container.id = 'landing-page-container';
 
     // navLinks is justified right
     // navLinks is a flex element
@@ -32,9 +32,14 @@ function initHeader() {
         }
     }
 
-    header.appendChild(navLinks);
+    const landingPageContent = document.createElement('div');
+    landingPageContent.id = 'front-content';
 
-    return header;
+    container.appendChild(landingPageContent);
+
+    container.appendChild(navLinks);
+
+    return container;
 }
 
 export default initHeader;

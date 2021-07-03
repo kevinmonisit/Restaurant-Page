@@ -2,7 +2,12 @@
 // import component from './initial-page.js';
 import headerComponent from './header.js';
 import 'normalize.css';
-import createFirstPageComponent from './initial-page.js';
+import createFirstPageContent from './initial-page.js';
+
+// const html = document.querySelector('html');
+// html.translate = 'no';
 
 document.body.appendChild(headerComponent());
-document.body.appendChild(createFirstPageComponent());
+
+const frontPageContent = document.getElementById('front-content');
+frontPageContent.appendChild(createFirstPageContent());
