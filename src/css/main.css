@@ -3,10 +3,13 @@ html, body {
     height:100%;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
 #landing-page-container {
     width: 100%;
     height:94%;
-    background-color: green;
+    /* background-color: green; */
 
     display:flex;
     justify-content: flex-end;
@@ -16,7 +19,7 @@ html, body {
     flex-grow:2;
 
     height:100%;
-    background-color: red;
+    background-color: #FB6262;
 }
 
 #nav-wrapper {
@@ -29,15 +32,17 @@ html, body {
 
     height:65px;
     min-width: 290px;
+    margin: 0 20px;
 }
 
 #nav-wrapper div{
     height:30px;
-    margin: 0 20px;
-}
 
-#Home {
-    margin-left: 30px !important;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color:black;
+
+    margin: 0 20px;
 }
 
 @keyframes header-animation {
@@ -52,12 +57,34 @@ html, body {
     }
 }
 
+#first-page-content-wrapper div{
+    padding: 20px;
+}
+
 #titleWrapper {
-    font-size: 3rem;
+    font-size: 5rem;
+    font-family: 'Bungee', Arial, cursive;
+    color:white;
 }
 
 #subtitleWrapper {
     font-size:2rem;
+    font-family: 'Bungee', Arial, cursive;
+    width:550px;
+}
+
+#textWrapper {
+    font-size:1.1rem;
+    max-width:600px;
+    padding-right: 0px !important;
+
+    font-family: 'Open Sans', sans-serif;
+    color:white;
+    font-weight: bold;
+}
+
+#name {
+    color:white;
 }
 
 /*

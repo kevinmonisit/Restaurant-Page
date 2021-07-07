@@ -17,7 +17,7 @@ function createFirstPageComponent() {
     };
 
     for (const key in elements) {
-        if (Object.hasOwnProperty.call(elements, key)) {
+        if ({}.hasOwnProperty.call(elements, key)) {
             const wrapper = document.createElement('div');
             wrapper.id = key;
             elements[key] = wrapper;
@@ -26,9 +26,10 @@ function createFirstPageComponent() {
         }
     }
 
-    elements['titleWrapper'].textContent = 'Ramen\nIchiraku';
-    elements['subtitleWrapper'].textContent =
-        'Welcome to Naruto Uzumaki\'s Go-To Ramen Shop.';
+    elements['titleWrapper'].innerHTML = 'Ramen<br>Ichiraku.';
+    elements['subtitleWrapper'].innerHTML =
+        `Welcome to <span id=\'name\'>Naruto Uzumaki\'s</span>
+        Go-To Ramen Shop.`;
 
     elements['textWrapper'].textContent = txt;
 
