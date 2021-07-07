@@ -3,8 +3,23 @@ html, body {
     height:100%;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap'); */
+
+@font-face {
+    font-family: 'Bungee';
+    src: url('../fonts/Bungee-Regular.woff2') format('woff2');
+    /* font-weight: 600; */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSansRegular.woff2') format('woff2'),
+        url('../fonts/OpenSans-SemiBold.woff2') format('woff2');
+    /* font-weight: 600; */
+    font-style: normal;
+}
 
 #header {
     width: 100%;
@@ -31,12 +46,15 @@ html, body {
 }
 
 #title-header {
-    --font-size: 1.5rem;
+    --font-size: 2.4rem;
     height: var(--font-size, 1.5rem);
     font-size: var(--font-size);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Bungee', Arial;
 
-    margin-left: 10px;
+    color: white;
+
+    margin-left: 20px;
+    margin-bottom:2px;
 }
 
 #left-header {

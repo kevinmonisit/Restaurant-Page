@@ -5,6 +5,7 @@ import './css/main.css';
 const header = () => {
     let headerNode = null;
     let _nav = {};
+    let headerTitle = null;
 
     const initHeader = () => {
         // flex
@@ -38,8 +39,10 @@ const header = () => {
         leftSideHeader.id = 'left-header';
 
         const hiddenTitle = document.createElement('div');
-        hiddenTitle.textContent = 'Ramen Ichiraku';
+        hiddenTitle.textContent = 'Ramen Ichiraku.';
         hiddenTitle.id = 'title-header';
+        hiddenTitle.classList.toggle('title-header-toggle');
+        headerTitle = hiddenTitle;
 
         leftSideHeader.appendChild(hiddenTitle);
 
@@ -58,6 +61,7 @@ const header = () => {
      */
     const toggleHeader = () => {
         headerNode.classList.toggle('not-landing-page');
+        headerTitle.classList.toggle('title-header-toggle');
         _toggleNavFontColor();
     };
 
