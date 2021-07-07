@@ -6,7 +6,7 @@ html, body {
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-#landing-page-container {
+#header {
     width: 100%;
     height:94%;
     /* background-color: green; */
@@ -15,11 +15,39 @@ html, body {
     justify-content: flex-end;
 }
 
-#front-content {
+/*
+*/
+.not-landing-page {
+    height: 65px !important;
+    background-color: #FB6262;
+}
+
+.nav-links-toggle {
+    color:white !important;
+}
+
+.title-header-toggle {
+    display:none;
+}
+
+#title-header {
+    --font-size: 1.5rem;
+    height: var(--font-size, 1.5rem);
+    font-size: var(--font-size);
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin-left: 10px;
+}
+
+#left-header {
     flex-grow:2;
 
     height:100%;
     background-color: #FB6262;
+
+    display:flex;
+    flex-direction: row;
+    align-items:center;
 }
 
 #nav-wrapper {
@@ -36,7 +64,7 @@ html, body {
 }
 
 #nav-wrapper div{
-    height:30px;
+    height:1rem;
 
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;

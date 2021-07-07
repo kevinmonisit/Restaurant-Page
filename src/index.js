@@ -20,10 +20,16 @@ const header = headerComponent();
 document.body.appendChild(header.getHeaderNode());
 
 /**
+ * @param {Number} prevPage the page the site is toggling from
  * @param {Number} currPage the page to toggle to
  */
-function updatePage(currPage) {
+function updatePage(prevPage, currPage) {
+    if (prevPage === currPage) return;
+
     updateHeader(currPage);
+    // transition away the current elements
+    // of the page (if it is not of the same page that is)
+
     switch (currPage) {
         case LANDING:
             const frontPageContent = document.getElementById('front-content');
@@ -60,3 +66,4 @@ function updateHeader(prevPage, currPage) {
 }
 
 updatePage(currPage);
+header.toggleHeader();

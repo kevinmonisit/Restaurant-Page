@@ -4,11 +4,12 @@ import './css/main.css';
 
 const header = () => {
     let headerNode = null;
+    let _nav = {};
 
     const initHeader = () => {
         // flex
         const container = document.createElement('div');
-        container.id = 'landing-page-container';
+        container.id = 'header';
 
         // navLinks is justified right
         // navLinks is a flex element
@@ -33,14 +34,20 @@ const header = () => {
             }
         }
 
-        const landingPageContent = document.createElement('div');
-        landingPageContent.id = 'front-content';
+        const leftSideHeader = document.createElement('div');
+        leftSideHeader.id = 'left-header';
 
-        container.appendChild(landingPageContent);
+        const hiddenTitle = document.createElement('div');
+        hiddenTitle.textContent = 'Ramen Ichiraku';
+        hiddenTitle.id = 'title-header';
 
+        leftSideHeader.appendChild(hiddenTitle);
+
+        container.appendChild(leftSideHeader);
         container.appendChild(navLinks);
 
         headerNode = container;
+        _nav = nav;
     };
 
     /**
@@ -48,19 +55,37 @@ const header = () => {
      * menu page are different. Therefore, when necessary,
      * this function may be called to adjust the header and
      * trigger animations appropriately.
-     * @param {Node} header reference to header element
      */
     const toggleHeader = () => {
-        header.classList.toggle('landing');
+        headerNode.classList.toggle('not-landing-page');
+        _toggleNavFontColor();
+    };
+
+    const _toggleNavFontColor = () => {
+        for (const key in _nav) {
+            if ({}.hasOwnProperty.call(_nav, key)) {
+                _nav[key].classList.toggle('nav-links-toggle');
+            }
+        }
     };
 
     const getHeaderNode = () => headerNode;
+
+    /**
+     * An object that contains references to the three
+     * navigation links. It is initialized with each
+     * instance of header object.
+     *
+     * @return {Object} references to navigation links
+     */
+    const getNavLinks = () => _nav;
 
     initHeader();
 
     return {
         toggleHeader,
         getHeaderNode,
+        getNavLinks,
     };
 };
 
