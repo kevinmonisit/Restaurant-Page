@@ -1,0 +1,56 @@
+
+#contact-first-row {
+    width: 100%;
+    min-height:450px;
+    flex-grow:2;
+    background-color:#fff;
+
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+}
+
+#contact-second-row {
+    width:100%;
+    min-height:300px;
+    background-color:blue;
+}
+
+#contact-page-wrapper {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+#owner-image {
+    width:200px;
+    height:300px;
+    object-fit:cover;
+    margin: auto 0;
+}
+
+#owner-text {
+    font-family: 'Open Sans Bold';
+}
+
+#owner-image-wrapper {
+    flex-basis:300px;
+    min-width:300px;
+    max-width:350px;
+    height:100%;
+
+    flex-grow:1;
+
+    display:flex;
+    justify-content: center;
+}
+
+#contact-us-first-row-text {
+    color:white;
+    flex-grow:2;
+
+    margin-right:30px;
+    color:black;
+    font-family: 'Open Sans', Arial;
+}

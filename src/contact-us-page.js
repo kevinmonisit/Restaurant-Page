@@ -1,6 +1,8 @@
 /* eslint-disable indent */
 import OwnerImage from './imgs/owner.jpg';
 import footerComponent from './footer.js';
+import './css/contactUs.css';
+import txt from './loremIpsum.txt';
 
 const contactPage = () => {
     let _firstRow = null;
@@ -17,14 +19,8 @@ const contactPage = () => {
 
         const footer = footerComponent();
 
-        firstRow.id = 'contact-first-row';
-        secondRow.id = 'contact-second-row';
-
-        const imageOfOwner = new Image();
-        imageOfOwner.src = OwnerImage;
-
-        // firstRow.appendChild(imageOfOwner);
-
+        _initFirstRow(firstRow);
+        _initSecondRow(secondRow);
         contactPageWrapper.appendChild(firstRow);
         contactPageWrapper.appendChild(secondRow);
         contactPageWrapper.appendChild(footer);
@@ -33,6 +29,33 @@ const contactPage = () => {
 
         _firstRow = firstRow;
         _secondRow = secondRow;
+    };
+
+    const _initFirstRow = (firstRow) => {
+        firstRow.id = 'contact-first-row';
+
+        const imageOfOwner = new Image();
+        imageOfOwner.src = OwnerImage;
+        imageOfOwner.id = 'owner-image';
+
+        const imageDivWrapper = document.createElement('div');
+        imageDivWrapper.id = 'owner-image-wrapper';
+        imageDivWrapper.appendChild(imageOfOwner);
+
+        let textContent = txt;
+        textContent += `<br><br>
+        <span id=\'owner-text\'>Teuchi</span><br>
+        Owner of Ramen Ichiraku`;
+        const textContentWrapper = document.createElement('div');
+        textContentWrapper.id ='contact-us-first-row-text';
+        textContentWrapper.innerHTML = textContent;
+
+        firstRow.appendChild(imageDivWrapper);
+        firstRow.appendChild(textContentWrapper);
+    };
+
+    const _initSecondRow = (secondRow) => {
+        secondRow.id = 'contact-second-row';
     };
 
     /**
