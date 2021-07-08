@@ -4,6 +4,7 @@
 import headerComponent from './header.js';
 import 'normalize.css';
 import createFirstPageContent from './initial-page.js';
+import contactPageComponent from './contact-us-page.js';
 
 // const html = document.querySelector('html');
 // html.translate = 'no';
@@ -18,6 +19,8 @@ const currPage = CONTACT_US;
 // looks kinda odd without the 'new' keyword tbh
 const header = headerComponent();
 document.body.appendChild(header.getHeaderNode());
+
+const contactPage = contactPageComponent();
 
 /**
  * @param {Number} prevPage the page the site is toggling from
@@ -36,6 +39,7 @@ function updatePage(prevPage, currPage) {
             frontPageContent.appendChild(createFirstPageContent());
             break;
         case CONTACT_US:
+            contactPage.toggleContactPage();
             break;
         case MENU:
             break;
@@ -65,5 +69,5 @@ function updateHeader(prevPage, currPage) {
     }
 }
 
-updatePage(currPage);
+updatePage(-1, currPage);
 header.toggleHeader();

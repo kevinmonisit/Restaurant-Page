@@ -36,10 +36,10 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
-      {
-        test: /\.webp$/i,
-        use: ['file-loader', 'webp-loader'],
-      },
+      // {
+      //   test: /\.webp$/i,
+      //   use: ['file-loader', 'webp-loader'],
+      // },
     ],
   },
 };

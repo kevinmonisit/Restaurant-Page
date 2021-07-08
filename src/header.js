@@ -7,7 +7,7 @@ const header = () => {
     let _nav = {};
     let headerTitle = null;
 
-    const initHeader = () => {
+    const _initHeader = () => {
         // flex
         const container = document.createElement('div');
         container.id = 'header';
@@ -84,7 +84,7 @@ const header = () => {
      */
     const getNavLinks = () => _nav;
 
-    initHeader();
+    _initHeader();
 
     return {
         toggleHeader,
