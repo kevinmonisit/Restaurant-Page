@@ -3,6 +3,7 @@ import OwnerImage from './imgs/owner.jpg';
 import footerComponent from './footer.js';
 import './css/contactUs.css';
 import txt from './loremIpsum.txt';
+import storeImage from './imgs/store.jpg';
 
 const contactPage = () => {
     let _firstRow = null;
@@ -56,6 +57,42 @@ const contactPage = () => {
 
     const _initSecondRow = (secondRow) => {
         secondRow.id = 'contact-second-row';
+
+        const info = {
+            'Contact': {
+                reference: null,
+                content: `(192) 209 1938<br>
+                               Ramen Ichiraku`,
+            },
+            'Hours': {
+                reference: null,
+                content: 'Open all day, everyday.',
+            },
+            'Location': {
+                reference: null,
+                content: 'Konohagakure, Hidden Leaf Village',
+            },
+        };
+
+        for (const key in info) {
+            if ({}.hasOwnProperty.call(info, key)) {
+                const infoElement = document.createElement('div');
+                infoElement.id = key;
+
+                let textContent = `<h3>${key}</h3>`;
+                textContent += info[key].content;
+
+                infoElement.innerHTML = textContent;
+                info[key].reference = infoElement;
+
+                secondRow.appendChild(infoElement);
+            }
+        }
+
+        const imageOfStore = new Image();
+        imageOfStore.id = 'image-of-store';
+        imageOfStore.src = storeImage;
+        secondRow.appendChild(imageOfStore);
     };
 
     /**
