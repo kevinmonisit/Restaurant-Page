@@ -13,14 +13,21 @@ const LANDING = 0;
 const CONTACT_US = 1;
 const MENU = 2;
 
-const currPage = CONTACT_US;
+let currPage = LANDING;
+
+// ===================== Initializing Elements =============
 
 // might want to use ES6 classes in the future
 // looks kinda odd without the 'new' keyword tbh
 const header = headerComponent();
 document.body.appendChild(header.getHeaderNode());
 
+const frontPageContent = document.getElementById('left-header');
+frontPageContent.appendChild(createFirstPageContent());
+
 const contactPage = contactPageComponent();
+
+// ===================== Setting Page Changing Logic =============
 
 /**
  * @param {Number} prevPage the page the site is toggling from
@@ -29,14 +36,26 @@ const contactPage = contactPageComponent();
 function updatePage(prevPage, currPage) {
     if (prevPage === currPage) return;
 
-    updateHeader(currPage);
-    // transition away the current elements
-    // of the page (if it is not of the same page that is)
+    updateHeader(prevPage, currPage);
 
-    switch (currPage) {
+   _togglePage(prevPage);
+   _togglePage(currPage);
+}
+
+/**
+ *
+ * This function will initiate an animation
+ * to transition to or from a page.
+ *
+ * @param {Number} pageToToggle page to toggle visibility
+ */
+function _togglePage(pageToToggle) {
+    const firstPageContent =
+        document.getElementById('first-page-content-wrapper');
+
+    switch (pageToToggle) {
         case LANDING:
-            const frontPageContent = document.getElementById('front-content');
-            frontPageContent.appendChild(createFirstPageContent());
+            firstPageContent.classList.toggle('invisible');
             break;
         case CONTACT_US:
             contactPage.toggleContactPage();
@@ -69,5 +88,38 @@ function updateHeader(prevPage, currPage) {
     }
 }
 
-updatePage(-1, currPage);
-header.toggleHeader();
+/**
+ *
+ * Because the number IDs for pages are numbers
+ * and the buttons do not have access to these
+ * constants, this function converts their keys
+ * to these page number IDs.
+ *
+ * @param {String} key the button key
+ * @return {Number} the corresponding page ID number
+ */
+function _getPageID(key) {
+    const keyLower = key.toLowerCase();
+    if (keyLower.includes('home')) {
+        return LANDING;
+    } else if (keyLower.includes('contact')) {
+        return CONTACT_US;
+    } else if (keyLower.includes('menu')) {
+        return MENU;
+    } else {
+        throw Error(`Invalid key ${key}`);
+    }
+}
+
+// ================= INITIALIZING BUTTONS ============
+
+const navLinks = header.getNavLinks();
+Object.keys(navLinks).forEach((key) => {
+    navLinks[key].addEventListener('click', () => {
+        const newPageID = _getPageID(key);
+
+        updatePage(currPage, newPageID);
+        currPage = newPageID;
+    });
+});
+
