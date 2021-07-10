@@ -5,6 +5,7 @@ import headerComponent from './header.js';
 import 'normalize.css';
 import createFirstPageContent from './initial-page.js';
 import contactPageComponent from './contact-us-page.js';
+import menuPageComponent from './menu.js';
 
 // const html = document.querySelector('html');
 // html.translate = 'no';
@@ -26,6 +27,7 @@ const frontPageContent = document.getElementById('left-header');
 frontPageContent.appendChild(createFirstPageContent());
 
 const contactPage = contactPageComponent();
+const menupage = menuPageComponent();
 
 // ===================== Setting Page Changing Logic =============
 
@@ -123,3 +125,4 @@ Object.keys(navLinks).forEach((key) => {
     });
 });
 
+updatePage(LANDING, MENU);

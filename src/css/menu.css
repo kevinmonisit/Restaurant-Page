@@ -1,0 +1,25 @@
+#menu-page-wrapper {
+    text-align: center;
+}
+
+#menu-page-wrapper > div {
+    margin: 15px 0;
+}
+
+#menu-row-two {
+    display:flex;
+    justify-content: center;
+}
+
+#ramen-original-image {
+    width:200px;
+}
+
+#menu-row-three {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#menu-row-three div > img{
+    width:300px;
+}
