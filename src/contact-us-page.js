@@ -62,7 +62,7 @@ const contactPage = () => {
             'Contact': {
                 reference: null,
                 content: `(192) 209 1938<br>
-                               Ramen Ichiraku`,
+                               ramen.ichiraku@hidden.leaf.io`,
             },
             'Hours': {
                 reference: null,
@@ -74,20 +74,27 @@ const contactPage = () => {
             },
         };
 
+        const secondRowContentWrapper = document.createElement('div');
+        secondRowContentWrapper.id = 'second-content-wrapper';
+
+
         for (const key in info) {
             if ({}.hasOwnProperty.call(info, key)) {
                 const infoElement = document.createElement('div');
                 infoElement.id = key;
 
-                let textContent = `<h3>${key}</h3>`;
+                let textContent = `<span class='bold'>${key}</span><br>`;
                 textContent += info[key].content;
 
                 infoElement.innerHTML = textContent;
+                infoElement.id = `contact-${key}`;
                 info[key].reference = infoElement;
 
-                secondRow.appendChild(infoElement);
+                secondRowContentWrapper.appendChild(infoElement);
             }
         }
+
+        secondRow.appendChild(secondRowContentWrapper);
 
         const imageOfStore = new Image();
         imageOfStore.id = 'image-of-store';
