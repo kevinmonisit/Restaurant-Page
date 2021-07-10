@@ -9,11 +9,13 @@ const contactPage = () => {
     let _firstRow = null;
     let _secondRow = null;
 
+    let contactPageWrapper = null;
+
     const _initContactPage = () => {
         const firstRow = document.createElement('div');
         const secondRow = document.createElement('div');
 
-        const contactPageWrapper = document.createElement('div');
+        contactPageWrapper = document.createElement('div');
         contactPageWrapper.id = 'contact-page-wrapper';
 
         const body = document.querySelector('body');
@@ -77,7 +79,6 @@ const contactPage = () => {
         const secondRowContentWrapper = document.createElement('div');
         secondRowContentWrapper.id = 'second-content-wrapper';
 
-
         for (const key in info) {
             if ({}.hasOwnProperty.call(info, key)) {
                 const infoElement = document.createElement('div');
@@ -108,8 +109,7 @@ const contactPage = () => {
      * from the contact page to another page.
      */
     const toggleContactPage = () => {
-        _firstRow.classList.toggle('invisible');
-        _secondRow.classList.toggle('invisible');
+        contactPageWrapper.classList.toggle('invisible');
     };
 
     const getFirstRowWrapper = () => _firstRow;
