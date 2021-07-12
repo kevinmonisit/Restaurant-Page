@@ -6,6 +6,7 @@ import 'normalize.css';
 import createFirstPageContent from './initial-page.js';
 import contactPageComponent from './contact-us-page.js';
 import menuPageComponent from './menu.js';
+// import menuPage from './menu.js';
 
 // const html = document.querySelector('html');
 // html.translate = 'no';
@@ -27,7 +28,7 @@ const frontPageContent = document.getElementById('left-header');
 frontPageContent.appendChild(createFirstPageContent());
 
 const contactPage = contactPageComponent();
-const menupage = menuPageComponent();
+const menuPage = menuPageComponent();
 
 // ===================== Setting Page Changing Logic =============
 
@@ -63,6 +64,7 @@ function _togglePage(pageToToggle) {
             contactPage.toggleContactPage();
             break;
         case MENU:
+            menuPage.toggleMenuPage();
             break;
         default:
             break;
@@ -125,4 +127,4 @@ Object.keys(navLinks).forEach((key) => {
     });
 });
 
-updatePage(LANDING, MENU);
+// updatePage(LANDING, MENU);

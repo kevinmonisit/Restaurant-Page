@@ -9,6 +9,10 @@
 
 #menu-page-wrapper img {
     border-radius: 7px;
+    cursor: pointer;
+}
+
+#menu-page-wrapper img:hover {
 }
 
 #menu-page-wrapper > div {

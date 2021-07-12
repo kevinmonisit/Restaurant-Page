@@ -80,9 +80,11 @@ const menuPage = () => {
     };
 
     initMenu();
+    toggleMenuPage();
 
     return {
         getMenuWrapper,
+        toggleMenuPage,
     };
 };
 
