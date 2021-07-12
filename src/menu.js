@@ -27,6 +27,8 @@ const menuPage = () => {
         // row one shows the title
         const rowOne = document.createElement('div');
         rowOne.innerText = 'MENU';
+        rowOne.style['font-family'] = 'Open Sans Bold';
+        rowOne.style['font-size'] = '2rem';
 
         // row two shows the main specialty (Naruto's go-to)
         const rowTwo = document.createElement('div');
@@ -35,6 +37,8 @@ const menuPage = () => {
         // row three shows a grid of other options
         const rowThree = document.createElement('div');
         rowThree.id ='menu-row-three';
+
+        // ========== ROW configurations =======
 
         // ROW TWO ======================
         const ramenOriginal = new Image();
@@ -51,6 +55,7 @@ const menuPage = () => {
 
                 cell.appendChild(ramenImage);
                 cell.classList.add('ramen-image-grid');
+                cell.id = `ramen-image-${key.slice(1)}`;
                 cell.style['text-align'] = 'center';
 
                 const subtitle = document.createElement('div');
