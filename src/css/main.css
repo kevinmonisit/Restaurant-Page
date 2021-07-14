@@ -43,8 +43,9 @@ html, body {
 /*
 */
 .not-landing-page {
-    height: 65px !important;
-    background-color: #FB6262;
+    /* height: 65px !important; */
+    background-color: white;
+    /* display:none !important; */
 }
 
 .nav-links-toggle {
@@ -76,6 +77,8 @@ html, body {
     display:flex;
     flex-direction: row;
     align-items:center;
+
+    position: relative;
 }
 
 #nav-wrapper {
@@ -89,6 +92,7 @@ html, body {
     height:65px;
     min-width: 290px;
     margin: 0 20px;
+    z-index:6
 }
 
 #nav-wrapper div{
@@ -99,18 +103,6 @@ html, body {
     color:black;
 
     margin: 0 20px;
-}
-
-@keyframes header-animation {
-    from {
-        width:100%;
-        height:65px;
-    }
-
-    to {
-        width:60%;
-        height:95%;
-    }
 }
 
 #first-page-content-wrapper div{
@@ -143,25 +135,74 @@ html, body {
     color:white;
 }
 
-/*
-#first-page-background-wrapper {
-    position:absolute;
-    top:0;
+#animation-header-element {
     width:100%;
+    position: absolute;
+    z-index:2;
 
-    z-index:-1;
+    background-color: blue;;
 
-    background-color: blue;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    display:block !important;
+}
 
-    animation-name: header-animation;
-    animation-duration:1.5s;
+.toggle-header-change-top {
+    background-color: #FB6262;
+
+    animation-name: header-animation-to-top;
+    animation-duration:0.7s;
 
     animation-fill-mode:both;
 
-    animation-iteration-count: 1;
+    /* animation-iteration-count: 5; */
     animation-direction:alternate;
     animation-timing-function: ease;
 }
+
+.toggle-header-change-left {
+    background-color: #FB6262;
+
+    animation-name: header-animation-to-left;
+    animation-duration:0.7s;
+
+    animation-fill-mode:both;
+
+    /* animation-iteration-count: 5; */
+    animation-direction:alternate;
+    animation-timing-function: ease;
+}
+
+@keyframes header-animation-to-top {
+    from {
+        width:100%;
+        height:100%;
+    }
+
+    to {
+        width:100vw;
+        height:65px;
+    }
+}
+
+@keyframes header-animation-to-left {
+
+    from {
+        width:100vw;
+        height:65px;
+    }
+
+    to {
+        width:100%;
+        height:100%;
+    }
+}
+
+
+
+/*
 
 #title {
     margin-top: 65px;

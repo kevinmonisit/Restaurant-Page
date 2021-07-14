@@ -6,6 +6,7 @@ import ramen3 from './imgs/ramen3.jpeg';
 import ramen4 from './imgs/ramen4-shoyu.png';
 import original from './imgs/original.jpeg';
 import './css/menu.css';
+import footer from './footer.js';
 
 const menuPage = () => {
     let _menuPageWrapper = null;
@@ -46,6 +47,15 @@ const menuPage = () => {
         ramenOriginal.id = 'ramen-original-image';
         rowTwo.appendChild(ramenOriginal);
 
+        const ramenOriginalTitle = document.createElement('div');
+        ramenOriginalTitle.innerText = 'Chef\'s Specialty: Number 0';
+        ramenOriginalTitle.style['margin-top'] = '10px';
+        ramenOriginalTitle.style['margin-bottom'] = '2rem';
+        ramenOriginalTitle.style['font-size'] = '1.5rem';
+        ramenOriginalTitle.style['font-family'] = `'Open Sans', Arial`;
+
+        rowTwo.appendChild(ramenOriginalTitle);
+
         // ROW THREE ======================
         for (const key in ramenImages) {
             if ({}.hasOwnProperty.call(ramenImages, key)) {
@@ -69,6 +79,9 @@ const menuPage = () => {
         _menuPageWrapper.appendChild(rowOne);
         _menuPageWrapper.appendChild(rowTwo);
         _menuPageWrapper.appendChild(rowThree);
+
+        const _footer = footer();
+        _menuPageWrapper.appendChild(_footer);
 
         body.appendChild(_menuPageWrapper);
     };

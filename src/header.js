@@ -7,6 +7,8 @@ const header = () => {
     let _nav = {};
     let headerTitle = null;
 
+    let _animatedHeader = null;
+
     const _initHeader = () => {
         // flex
         const container = document.createElement('div');
@@ -35,8 +37,19 @@ const header = () => {
             }
         }
 
+        // animatedHeader is a div that transitions
+        // by transforming itself to the top header
+        // from the red left square in the home page
+        const animatedHeader = document.createElement('div');
+        animatedHeader.id = 'animation-header-element';
+
         const leftSideHeader = document.createElement('div');
         leftSideHeader.id = 'left-header';
+
+        _animatedHeader = animatedHeader;
+        // _animatedHeader.classList.toggle('toggle-header-change-left');
+
+        leftSideHeader.appendChild(animatedHeader);
 
         const hiddenTitle = document.createElement('div');
         hiddenTitle.textContent = 'Ramen Ichiraku.';
@@ -62,6 +75,14 @@ const header = () => {
     const toggleHeader = () => {
         headerNode.classList.toggle('not-landing-page');
         headerTitle.classList.toggle('title-header-toggle');
+
+        if (_animatedHeader.classList.contains('toggle-header-change-top')) {
+            _animatedHeader.classList.toggle('toggle-header-change-top');
+            _animatedHeader.classList.toggle('toggle-header-change-left');
+        }
+
+        _animatedHeader.classList.toggle('toggle-header-change-top');
+
         _toggleNavFontColor();
     };
 
