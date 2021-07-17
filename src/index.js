@@ -128,3 +128,4 @@ Object.keys(navLinks).forEach((key) => {
 });
 
 // updatePage(LANDING, MENU);
+header.initHeaderAnimationElement();

@@ -40,16 +40,33 @@ const header = () => {
         // animatedHeader is a div that transitions
         // by transforming itself to the top header
         // from the red left square in the home page
-        const animatedHeader = document.createElement('div');
-        animatedHeader.id = 'animation-header-element';
+        // const animatedHeader = document.createElement('div');
+        // animatedHeader.id = 'animation-header-element';
 
         const leftSideHeader = document.createElement('div');
         leftSideHeader.id = 'left-header';
 
-        _animatedHeader = animatedHeader;
+        // _animatedHeader = animatedHeader;
         // _animatedHeader.classList.toggle('toggle-header-change-left');
 
-        leftSideHeader.appendChild(animatedHeader);
+        const body = document.querySelector('body');
+        const containerDimensions = container.getBoundingClientRect();
+
+        const time = new Date();
+        console.log(time.getTime());
+
+        leftSideHeader.addEventListener('load', function(e) {
+            console.log('h');
+            animatedHeader.style['width'] = `${leftSideHeader.offsetWidth}px`;
+            animatedHeader.style['height'] = `${leftSideHeader.offsetHeight}px`;
+        });
+        console.log(new Date().getTime());
+
+        setTimeout(() => {
+        }, 5000);
+
+        // body.append(animatedHeader);
+        // leftSideHeader.appendChild(animatedHeader);
 
         const hiddenTitle = document.createElement('div');
         hiddenTitle.textContent = 'Ramen Ichiraku.';
@@ -64,6 +81,22 @@ const header = () => {
 
         headerNode = container;
         _nav = nav;
+    };
+
+    /**
+     * This should be called after the
+     */
+    const initHeaderAnimationElement = () => {
+        const body = document.body;
+        const animatedHeader = document.createElement('div');
+        animatedHeader.id = 'animation-header-element';
+
+        const leftSideHeader = document.querySelector('#left-header');
+
+        animatedHeader.style['width'] = `${leftSideHeader.offsetWidth}px`;
+        animatedHeader.style['height'] = `${leftSideHeader.offsetHeight}px`;
+
+        body.appendChild(animatedHeader);
     };
 
     /**
@@ -111,6 +144,7 @@ const header = () => {
         toggleHeader,
         getHeaderNode,
         getNavLinks,
+        initHeaderAnimationElement,
     };
 };
 
